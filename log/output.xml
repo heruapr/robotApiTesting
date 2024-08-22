@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.9.6 on darwin)" generated="2024-08-21T01:22:23.268510" rpa="false" schemaversion="5">
+<suite id="s1" name="Create User" source="/Users/heruapriadi/Documents/Lion/robotApiTesting/test/create_user.robot">
+<test id="s1-t1" name="Create a new user" line="10">
+<kw name="Given the API endpoint is ${BASE_URL}" source_name="Given the API endpoint is ${url}">
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2024-08-21T01:22:23.295790" level="INFO">${BASE_URL} = https://reqres.in/api/users/</msg>
+<arg>${BASE_URL}</arg>
+<arg>${url}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2024-08-21T01:22:23.295578" elapsed="0.000284"/>
+</kw>
+<status status="PASS" start="2024-08-21T01:22:23.295100" elapsed="0.000836"/>
+</kw>
+<kw name="When I send a POST request to the endpoint with body tes-name SDET" source_name="When I send a POST request to the endpoint with body ${name} ${job}">
+<kw name="Create Session">
+<msg time="2024-08-21T01:22:23.296853" level="FAIL">No keyword with name 'Create Session' found.</msg>
+<arg>users</arg>
+<arg>${BASE_URL}</arg>
+<status status="FAIL" start="2024-08-21T01:22:23.296797" elapsed="0.000101">No keyword with name 'Create Session' found.</status>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<var>&amp;{data}</var>
+<arg>name=${name}</arg>
+<arg>job=${job}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="NOT RUN" start="2024-08-21T01:22:23.296996" elapsed="0.000059"/>
+</kw>
+<kw name="POST On Session">
+<var>${response}</var>
+<arg>users</arg>
+<arg>/posts</arg>
+<arg>json=${data}</arg>
+<arg>expected_status=anything</arg>
+<status status="NOT RUN" start="2024-08-21T01:22:23.297138" elapsed="0.000076"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<arg>${response}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="NOT RUN" start="2024-08-21T01:22:23.297288" elapsed="0.000038"/>
+</kw>
+<status status="FAIL" start="2024-08-21T01:22:23.296037" elapsed="0.001359">No keyword with name 'Create Session' found.</status>
+</kw>
+<kw name="Then the response status code should be 201">
+<status status="NOT RUN" start="2024-08-21T01:22:23.297480" elapsed="0.000040"/>
+</kw>
+<kw name="And the response body should contain the user's details">
+<status status="NOT RUN" start="2024-08-21T01:22:23.297601" elapsed="0.000051"/>
+</kw>
+<kw name="And the response body should have the user's name as tes-name" source_name="And the response body should have the user's name as ${expected_name}">
+<status status="NOT RUN" start="2024-08-21T01:22:23.297725" elapsed="0.000070"/>
+</kw>
+<kw name="And the response body should have the user's job as SDET" source_name="And the response body should have the user's job as ${expected_job}">
+<status status="NOT RUN" start="2024-08-21T01:22:23.297870" elapsed="0.000044"/>
+</kw>
+<status status="FAIL" start="2024-08-21T01:22:23.294745" elapsed="0.003254">No keyword with name 'Create Session' found.</status>
+</test>
+<status status="FAIL" start="2024-08-21T01:22:23.270146" elapsed="0.028127"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Create User">Create User</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2024-08-21T01:22:23.284555" level="ERROR">Error in file '/Users/heruapriadi/Documents/Lion/robotApiTesting/test/create_user.robot' on line 2: Importing library 'RequestsLibrary' failed: ModuleNotFoundError: No module named 'RequestsLibrary'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  /Users/heruapriadi/Library/Application Support/JetBrains/PyCharmCE2024.2/plugins/robotframework-intellij/lib/robotframework_debug_adapter
+  /Users/heruapriadi/Documents/Lion/robotApiTesting
+  /Users/heruapriadi/Library/Application Support/JetBrains/PyCharmCE2024.2/plugins/robotframework-intellij/lib
+  /Users/heruapriadi/Library/Application Support/JetBrains/PyCharmCE2024.2/plugins/robotframework-intellij/lib/robotframework_ls/vendored
+  /Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python39.zip
+  /Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9
+  /Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/lib-dynload
+  /Users/heruapriadi/Library/Python/3.9/lib/python/site-packages
+  /Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/site-packages</msg>
+</errors>
+</robot>

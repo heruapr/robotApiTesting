@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.12.5 on darwin)" generated="2024-08-22T14:17:19.801298" rpa="false" schemaversion="5">
+<suite id="s1" name="Create User &amp; Get Single User">
+<suite id="s1-s1" name="Create User" source="/Users/heruapriadi/Documents/Lion/robotApiTesting/test/create_user.robot">
+<test id="s1-s1-t1" name="Create a new user" line="10">
+<kw name="Given the API endpoint is ${BASE_URL}" source_name="Given the API endpoint is ${url}">
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2024-08-22T14:17:19.886584" level="INFO">${BASE_URL} = https://reqres.in/api/users/</msg>
+<arg>${BASE_URL}</arg>
+<arg>${url}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2024-08-22T14:17:19.886489" elapsed="0.000116"/>
+</kw>
+<status status="PASS" start="2024-08-22T14:17:19.886217" elapsed="0.000421"/>
+</kw>
+<kw name="When I send a POST request to the endpoint with body tes-name SDET" source_name="When I send a POST request to the endpoint with body ${name} ${job}">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2024-08-22T14:17:19.886863" level="INFO">Creating Session using : alias=users, url=https://reqres.in/api/users/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>users</arg>
+<arg>${BASE_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2024-08-22T14:17:19.886810" elapsed="0.000162"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-08-22T14:17:19.887141" level="INFO">&amp;{data} = { name=tes-name | job=SDET }</msg>
+<var>&amp;{data}</var>
+<arg>name=${name}</arg>
+<arg>job=${job}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-08-22T14:17:19.887013" elapsed="0.000137"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2024-08-22T14:17:20.723434" level="INFO">POST Request : url=https://reqres.in/api/users/posts 
+ path_url=/api/users/posts 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '35', 'Content-Type': 'application/json'} 
+ body=b'{"name": "tes-name", "job": "SDET"}' 
+ </msg>
+<msg time="2024-08-22T14:17:20.723872" level="INFO">POST Response : url=https://reqres.in/api/users/posts 
+ status=201, reason=Created 
+ headers={'Date': 'Thu, 22 Aug 2024 06:17:20 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '82', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1724307440&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=h3aMTTSagUMtTymy6XXkzvViBYKb3KLOXbaCc7xeve4%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1724307440&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=h3aMTTSagUMtTymy6XXkzvViBYKb3KLOXbaCc7xeve4%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"52-HPlCz7ha+Evw4lRwRssTbRFqt/I"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Server': 'cloudflare', 'CF-RAY': '8b70bd3d3c0f8992-SIN'} 
+ body={"name":"tes-name","job":"SDET","id":"824","createdAt":"2024-08-22T06:17:20.493Z"} 
+ </msg>
+<msg time="2024-08-22T14:17:20.724040" level="INFO">/opt/homebrew/lib/python3.12/site-packages/urllib3/connectionpool.py:1099: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2024-08-22T14:17:20.724349" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<var>${response}</var>
+<arg>users</arg>
+<arg>/posts</arg>
+<arg>json=${data}</arg>
+<arg>expected_status=anything</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2024-08-22T14:17:19.887185" elapsed="0.837198"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2024-08-22T14:17:20.725218" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<arg>${response}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2024-08-22T14:17:20.724775" elapsed="0.000491"/>
+</kw>
+<status status="PASS" start="2024-08-22T14:17:19.886718" elapsed="0.838669"/>
+</kw>
+<kw name="Then the response status code should be 201">
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>201</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2024-08-22T14:17:20.726101" elapsed="0.000183"/>
+</kw>
+<status status="PASS" start="2024-08-22T14:17:20.725732" elapsed="0.000616"/>
+</kw>
+<kw name="And the response body should contain the user's details">
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${response.json()}</arg>
+<arg>name</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2024-08-22T14:17:20.726772" elapsed="0.000844"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${response.json()}</arg>
+<arg>job</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2024-08-22T14:17:20.727734" elapsed="0.000541"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${response.json()}</arg>
+<arg>id</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2024-08-22T14:17:20.728391" elapsed="0.000453"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${response.json()}</arg>
+<arg>createdAt</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2024-08-22T14:17:20.728958" elapsed="0.000405"/>
+</kw>
+<status status="PASS" start="2024-08-22T14:17:20.726545" elapsed="0.002880"/>
+</kw>
+<kw name="And the response body should have the user's name as tes-name" source_name="And the response body should have the user's name as ${expected_name}">
+<kw name="Dictionary Should Contain Value" owner="Collections">
+<arg>${response.json()}</arg>
+<arg>${expected_name}</arg>
+<doc>Fails if ``value`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2024-08-22T14:17:20.729970" elapsed="0.000480"/>
+</kw>
+<status status="PASS" start="2024-08-22T14:17:20.729625" elapsed="0.000886"/>
+</kw>
+<kw name="And the response body should have the user's job as SDET" source_name="And the response body should have the user's job as ${expected_job}">
+<kw name="Dictionary Should Contain Value" owner="Collections">
+<arg>${response.json()}</arg>
+<arg>${expected_job}</arg>
+<doc>Fails if ``value`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2024-08-22T14:17:20.731210" elapsed="0.000434"/>
+</kw>
+<status status="PASS" start="2024-08-22T14:17:20.730668" elapsed="0.001185"/>
+</kw>
+<status status="PASS" start="2024-08-22T14:17:19.886014" elapsed="0.846133"/>
+</test>
+<status status="PASS" start="2024-08-22T14:17:19.816988" elapsed="0.915869"/>
+</suite>
+<suite id="s1-s2" name="Get Single User" source="/Users/heruapriadi/Documents/Lion/robotApiTesting/test/get_single_user.robot">
+<test id="s1-s2-t1" name="Retrieve a Single User by ID" line="10">
+<kw name="Given the API endpoint is ${BASE_URL}" source_name="Given the API endpoint is ${url}">
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2024-08-22T14:17:20.737007" level="INFO">${BASE_URL} = https://reqres.in/api/users/</msg>
+<arg>${BASE_URL}</arg>
+<arg>${url}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2024-08-22T14:17:20.736766" elapsed="0.000293"/>
+</kw>
+<status status="PASS" start="2024-08-22T14:17:20.736415" elapsed="0.000715"/>
+</kw>
+<kw name="When I send a GET request to the endpoint with id ${USER_ID}" source_name="When I send a GET request to the endpoint with id ${id}">
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2024-08-22T14:17:20.971098" level="INFO">GET Request : url=https://reqres.in/api/users/2 
+ path_url=/api/users/2 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2024-08-22T14:17:20.971373" level="INFO">GET Response : url=https://reqres.in/api/users/2 
+ status=200, reason=OK 
+ headers={'Date': 'Thu, 22 Aug 2024 06:17:20 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1723414506&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=t8RbyGV9otIpnfe3J9Ebf5cQ4XAgDduF%2F75IE6Y83NQ%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1723414506&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=t8RbyGV9otIpnfe3J9Ebf5cQ4XAgDduF%2F75IE6Y83NQ%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"118-pbdwwFo9SKNhD3Lx5iHJyngpq00"', 'Via': '1.1 vegur', 'Cache-Control': 'max-age=14400', 'CF-Cache-Status': 'HIT', 'Age': '5744', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '8b70bd41a8664d51-SIN', 'Content-Encoding': 'gzip'} 
+ body={"data":{"id":2,"email":"janet.weaver@reqres.in","first_name":"Janet","last_name":"Weaver","avatar":"https://reqres.in/img/faces/2-image.jpg"},"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}} 
+ </msg>
+<msg time="2024-08-22T14:17:20.971728" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>${BASE_URL}${id}</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2024-08-22T14:17:20.737648" elapsed="0.234134"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2024-08-22T14:17:20.972771" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<arg>${response}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2024-08-22T14:17:20.972195" elapsed="0.000653"/>
+</kw>
+<status status="PASS" start="2024-08-22T14:17:20.737295" elapsed="0.235686"/>
+</kw>
+<kw name="Then the response status code should be 200">
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>200</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2024-08-22T14:17:20.973913" elapsed="0.000259"/>
+</kw>
+<status status="PASS" start="2024-08-22T14:17:20.973372" elapsed="0.000913"/>
+</kw>
+<kw name="And the response body should contain the user's details">
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${response.json()}</arg>
+<arg>data</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2024-08-22T14:17:20.974841" elapsed="0.000742"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${response.json()}[data]</arg>
+<arg>email</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2024-08-22T14:17:20.975693" elapsed="0.000480"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${response.json()}[data]</arg>
+<arg>first_name</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2024-08-22T14:17:20.976286" elapsed="0.000435"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${response.json()}[data]</arg>
+<arg>last_name</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2024-08-22T14:17:20.976826" elapsed="0.000433"/>
+</kw>
+<kw name="Dictionary Should Contain Key" owner="Collections">
+<arg>${response.json()}[data]</arg>
+<arg>avatar</arg>
+<doc>Fails if ``key`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2024-08-22T14:17:20.977356" elapsed="0.000433"/>
+</kw>
+<status status="PASS" start="2024-08-22T14:17:20.974616" elapsed="0.003236"/>
+</kw>
+<kw name="And the response body should have the user's email as janet.weaver@reqres.in" source_name="And the response body should have the user's email as ${expected_email}">
+<kw name="Dictionary Should Contain Value" owner="Collections">
+<arg>${response.json()}[data]</arg>
+<arg>${expected_email}</arg>
+<doc>Fails if ``value`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2024-08-22T14:17:20.978270" elapsed="0.000498"/>
+</kw>
+<status status="PASS" start="2024-08-22T14:17:20.978027" elapsed="0.000802"/>
+</kw>
+<kw name="And the response body should have the user's name as Janet" source_name="And the response body should have the user's name as ${expected_name}">
+<kw name="Dictionary Should Contain Value" owner="Collections">
+<arg>${response.json()}[data]</arg>
+<arg>${expected_name}</arg>
+<doc>Fails if ``value`` is not found from ``dictionary``.</doc>
+<status status="PASS" start="2024-08-22T14:17:20.979533" elapsed="0.000494"/>
+</kw>
+<status status="PASS" start="2024-08-22T14:17:20.978974" elapsed="0.001117"/>
+</kw>
+<status status="PASS" start="2024-08-22T14:17:20.735922" elapsed="0.244329"/>
+</test>
+<status status="PASS" start="2024-08-22T14:17:20.733447" elapsed="0.247150"/>
+</suite>
+<status status="PASS" start="2024-08-22T14:17:19.802337" elapsed="1.178858"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="0" skip="0" id="s1" name="Create User &amp; Get Single User">Create User &amp; Get Single User</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="Create User">Create User &amp; Get Single User.Create User</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s2" name="Get Single User">Create User &amp; Get Single User.Get Single User</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

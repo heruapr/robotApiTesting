@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.9.6 on darwin)" generated="2024-08-20T22:48:27.110089" rpa="false" schemaversion="5">
+<suite id="s1" name="robotApiTesting" source="/Users/heruapriadi/Documents/Lion/robotApiTesting">
+<suite id="s1-s1" name="Test" source="/Users/heruapriadi/Documents/Lion/robotApiTesting/test">
+<suite id="s1-s1-s1" name="Test" source="/Users/heruapriadi/Documents/Lion/robotApiTesting/test/test.robot">
+<kw name="Authenticate as Admin" type="SETUP">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-08-20T22:48:27.130252" level="INFO">${body} = {'username': 'admin', 'password': 'password123'}</msg>
+<var>${body}</var>
+<arg>username=admin</arg>
+<arg>password=password123</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-08-20T22:48:27.130033" elapsed="0.000323"/>
+</kw>
+<kw name="POST">
+<msg time="2024-08-20T22:48:27.131364" level="FAIL">No keyword with name 'POST' found.</msg>
+<var>${response}</var>
+<arg>url=https://restful-booker.herokuapp.com/auth</arg>
+<arg>json=${body}</arg>
+<status status="FAIL" start="2024-08-20T22:48:27.130929" elapsed="0.000561">No keyword with name 'POST' found.</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${response.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-08-20T22:48:27.131976" elapsed="0.000048"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${token}</var>
+<arg>${response.json()}[token]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2024-08-20T22:48:27.132095" elapsed="0.000089"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${token}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-08-20T22:48:27.132256" elapsed="0.000053"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<arg>${token}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="NOT RUN" start="2024-08-20T22:48:27.132376" elapsed="0.000042"/>
+</kw>
+<status status="FAIL" start="2024-08-20T22:48:27.129723" elapsed="0.002769">No keyword with name 'POST' found.</status>
+</kw>
+<test id="s1-s1-s1-t1" name="Get Bookings from Restful Booker" line="7">
+<status status="FAIL" start="2024-08-20T22:48:27.132547" elapsed="0.000387">Parent suite setup failed:
+No keyword with name 'POST' found.</status>
+</test>
+<test id="s1-s1-s1-t2" name="Create a Booking at Restful Booker" line="21">
+<status status="FAIL" start="2024-08-20T22:48:27.133180" elapsed="0.000272">Parent suite setup failed:
+No keyword with name 'POST' found.</status>
+</test>
+<test id="s1-s1-s1-t3" name="Delete Booking" line="34">
+<status status="FAIL" start="2024-08-20T22:48:27.133604" elapsed="0.000328">Parent suite setup failed:
+No keyword with name 'POST' found.</status>
+</test>
+<status status="FAIL" start="2024-08-20T22:48:27.123951" elapsed="0.010316">Suite setup failed:
+No keyword with name 'POST' found.</status>
+</suite>
+<status status="FAIL" start="2024-08-20T22:48:27.123111" elapsed="0.011679"/>
+</suite>
+<status status="FAIL" start="2024-08-20T22:48:27.111735" elapsed="0.023569"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="3" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="3" skip="0" id="s1" name="robotApiTesting">robotApiTesting</stat>
+<stat pass="0" fail="3" skip="0" id="s1-s1" name="Test">robotApiTesting.Test</stat>
+<stat pass="0" fail="3" skip="0" id="s1-s1-s1" name="Test">robotApiTesting.Test.Test</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2024-08-20T22:48:27.124966" level="ERROR">Error in file '/Users/heruapriadi/Documents/Lion/robotApiTesting/test/test.robot' on line 2: Importing library 'RequestsLibrary' failed: ModuleNotFoundError: No module named 'RequestsLibrary'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  /Users/heruapriadi/Documents/Lion/robotApiTesting/lib
+  /Users/heruapriadi/Documents/Lion/robotApiTesting/resources
+  /Users/heruapriadi/.vscode/extensions/d-biehl.robotcode-0.82.3/bundled/libs
+  /Users/heruapriadi/.vscode/extensions/d-biehl.robotcode-0.82.3/bundled/tool/robotcode
+  /Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python39.zip
+  /Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9
+  /Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/lib-dynload
+  /Users/heruapriadi/Library/Python/3.9/lib/python/site-packages
+  /Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/site-packages</msg>
+</errors>
+</robot>
